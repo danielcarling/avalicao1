@@ -19,12 +19,12 @@ export const useTaskStore = defineStore('task', {
     tasks: [
       {
           "id": 1,
-          "title": "delectus aut autem",
+          "title": "Estudar vue",
           "completed": false
       },
       {
           "id": 2,
-          "title": "azarat metius zincus",
+          "title": "Sofrer",
           "completed": true
       },
   ],
@@ -57,6 +57,7 @@ export const useTaskStore = defineStore('task', {
     },
     cancelEdit() {
       this.editedTask = Object.assign({}, this.defaultTask)
+      this.editedIndex = -1
     }
   }
 })

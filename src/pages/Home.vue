@@ -15,7 +15,6 @@ import { ref } from 'vue'
 import { useTaskStore } from '../stores/TaskStore.js'
 import TaskBar from '../components/TaskBar.vue'
 import ListApp from '@/components/ListApp.vue';
-import EditTaskDialog from '@/components/EditTaskDialog.vue';
 
 const taskStore = useTaskStore()
 

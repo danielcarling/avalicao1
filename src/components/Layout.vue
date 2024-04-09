@@ -4,8 +4,13 @@
         <v-app-bar class="px-3 py-2" density="compact" flat
             color="blue-grey-darken-3">
             <v-tabs align-tabs="start">
-                <v-tab v-for="link in links" :key="link"
-                    :prepend-icon="link.icon" :to="link.to"></v-tab>
+                <v-tooltip v-for="link in links" :key="link" :text="link.name">
+                    <template v-slot:activator="{ props }">
+                        <v-tab v-bind="props" :to="link.to">
+                            <v-icon>{{ link.icon }}</v-icon>
+                        </v-tab>
+                    </template>
+                </v-tooltip>
             </v-tabs>
             <v-spacer></v-spacer>
         </v-app-bar>
@@ -25,7 +30,7 @@
 <script setup>
 const links = [
     {
-        name: 'Início',
+        name: 'Tarefas',
         icon: 'mdi-note-multiple-outline',
         tooltip: 'Tarefas',
         to: '/'

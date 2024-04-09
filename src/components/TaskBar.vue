@@ -8,8 +8,8 @@
 
       <v-tooltip text="Adicionar Tarefa">
         <template v-slot:activator="{ props }">
-          <v-btn icon v-bind="props" class="ml-2">
-            <v-icon @click="taskStore.addTask">mdi-plus</v-icon>
+          <v-btn @click="taskStore.addTask" icon v-bind="props" class="ml-2">
+            <v-icon>mdi-plus</v-icon>
           </v-btn>
         </template>
       </v-tooltip>
