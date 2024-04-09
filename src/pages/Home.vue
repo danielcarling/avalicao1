@@ -6,7 +6,7 @@
         <TaskBar />
         <v-select label="Filtrar Tarefas" :items='taskFilter'
             v-model="taskStore.activeFilter"></v-select>
-        <ListApp />
+        <ListApp type="home" />
     </div>
 </template>
 
@@ -15,6 +15,7 @@ import { ref } from 'vue'
 import { useTaskStore } from '../stores/TaskStore.js'
 import TaskBar from '../components/TaskBar.vue'
 import ListApp from '@/components/ListApp.vue';
+import EditTaskDialog from '@/components/EditTaskDialog.vue';
 
 const taskStore = useTaskStore()
 

@@ -3,7 +3,7 @@
     img="https://cdn.vuetifyjs.com/images/toolbar/map.jpg" flat>
     <v-toolbar dense floating>
       <v-text-field hide-details single-line v-model="taskStore.newTask"
-        @keyup.enter="taskStore.addTask"
+        @keypress.enter="taskStore.addTask"
         placeholder="Nova Tarefa"></v-text-field>
 
       <v-tooltip text="Adicionar Tarefa">

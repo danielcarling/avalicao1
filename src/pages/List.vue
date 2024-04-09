@@ -1,7 +1,25 @@
 <template>
-    <SearchBarVue></SearchBarVue>
+    <div class="">
+        <h1>Home</h1>
+
+        <EditTaskBar />
+        <v-select label="Filtrar Tarefas" :items='taskFilter'
+            v-model="taskStore.activeFilter"></v-select>
+        <ListApp type="edit" />
+    </div>
 </template>
 
 <script setup>
-    import SearchBarVue from '@/components/SearchBar.vue';
+import { ref } from 'vue'
+import { useTaskStore } from '../stores/TaskStore.js'
+import EditTaskBar from '../components/EditTaskBar.vue';
+import ListApp from '@/components/ListApp.vue';
+
+const taskStore = useTaskStore()
+
+const taskFilter = ref(['Todas', 'Completas', 'Pendentes'])
+
+const activeFilter = ref('Todas')
+
+
 </script>
