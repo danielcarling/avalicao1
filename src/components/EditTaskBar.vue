@@ -4,14 +4,14 @@
 
     <v-toolbar dense floating v-if="taskStore.editedTask">
       <v-text-field hide-details single-line
-        :model-value="taskStore.editedTask.title"
-        @keypress.enter="taskStore.editTask(task)"
-        placeholder="Nova Tarefa"></v-text-field>
-
+        v-model="taskStore.editedTask.title"
+        @keypress.enter="taskStore.saveEdit" placeholder="Editar Tarefa"
+        :readonly="taskStore.editedIndex === -1"></v-text-field>
       <v-tooltip text="Salvar">
         <template v-slot:activator="{ props }">
           <v-btn icon v-bind="props" class="ml-2 save-icon">
-            <v-icon @click="taskStore.saveEdit">mdi-content-save-check-outline</v-icon>
+            <v-icon
+              @click="taskStore.saveEdit">mdi-content-save-check-outline</v-icon>
           </v-btn>
         </template>
       </v-tooltip>

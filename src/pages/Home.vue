@@ -19,7 +19,7 @@ import EditTaskDialog from '@/components/EditTaskDialog.vue';
 
 const taskStore = useTaskStore()
 
-const taskFilter = ref(['Todas', 'Completas', 'Pendentes'])
+const taskFilter = ref(['Todas', 'Concluidas', 'Pendentes'])
 
 const activeFilter = ref('Todas')
 

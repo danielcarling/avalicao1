@@ -1,25 +1,30 @@
 <template>
   <div class="list">
-    <div v-for="task in taskStore.tasks">
+    <div v-for="task in taskStore.tasks" :key="task.id">
       <div class="list-item"
         v-if="taskStore.activeFilter === 'Todas' || taskStore.activeFilter === ''">
         <v-checkbox :label="task.title" v-model="task.completed" />
-        <v-icon class="delete-icon mb-5" @click="taskStore.deleteTask(task)"
-          v-if="type === 'home'">mdi-trash-can-outline</v-icon>
-        <v-icon class="pen-icon mb-5" @click="taskStore.editTask(task)"
-          v-else="type === 'home'">mdi-pen</v-icon>
-      </div>
-      <div class="list-item"
-        v-if="taskStore.activeFilter === 'Completas' && task.completed">
-        <v-checkbox :label="task.title" v-model="task.completed" />
-        <v-icon class="delete-icon mb-5"
+        <v-icon v-if="type === 'home'" class="delete-icon mb-5"
           @click="taskStore.deleteTask(task)">mdi-trash-can-outline</v-icon>
+        <v-icon class="pen-icon mb-5" @click="taskStore.editTask(task)"
+          v-else>mdi-pen</v-icon>
+      </div>
+      <div
+        v-else-if="taskStore.activeFilter === 'Concluidas' && task.completed === true"
+        class="list-item">
+        <v-checkbox :label="task.title" v-model="task.completed" />
+        <v-icon v-if="type === 'home'" class="delete-icon mb-5"
+          @click="taskStore.deleteTask(task)">mdi-trash-can-outline</v-icon>
+        <v-icon v-else class="pen-icon mb-5"
+          @click="taskStore.editTask(task)">mdi-pen</v-icon>
       </div>
       <div class="list-item"
         v-else-if="taskStore.activeFilter === 'Pendentes' && !task.completed">
         <v-checkbox :label="task.title" v-model="task.completed" />
-        <v-icon class="delete-icon mb-5"
+        <v-icon v-if="type === 'home'" class="delete-icon mb-5"
           @click="taskStore.deleteTask(task)">mdi-trash-can-outline</v-icon>
+        <v-icon v-else class="pen-icon mb-5"
+          @click="taskStore.editTask(task)">mdi-pen</v-icon>
       </div>
     </div>
   </div>

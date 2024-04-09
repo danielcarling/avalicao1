@@ -1,10 +1,11 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <v-app id="inspire">
-        <v-app-bar class="px-3" density="compact" flat color="teal-darken-4">
-            <v-spacer></v-spacer>
-            <v-tabs centered>
-                <v-tab v-for="link in links" :key="link" :text="link.name" :to="link.to"></v-tab>
+        <v-app-bar class="px-3 py-2" density="compact" flat
+            color="blue-grey-darken-3">
+            <v-tabs align-tabs="start">
+                <v-tab v-for="link in links" :key="link"
+                    :prepend-icon="link.icon" :to="link.to"></v-tab>
             </v-tabs>
             <v-spacer></v-spacer>
         </v-app-bar>
@@ -23,7 +24,17 @@
 
 <script setup>
 const links = [
-    { name: 'Início', to: '/' },
-    { name: 'Editar', to: '/list' },
+    {
+        name: 'Início',
+        icon: 'mdi-note-multiple-outline',
+        tooltip: 'Tarefas',
+        to: '/'
+    },
+    {
+        name: 'Editar',
+        icon: 'mdi-lead-pencil',
+        tooltip: 'Editar Tarefas',
+        to: '/edit'
+    },
 ]
 </script>

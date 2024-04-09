@@ -17,9 +17,6 @@ import ListApp from '@/components/ListApp.vue';
 
 const taskStore = useTaskStore()
 
-const taskFilter = ref(['Todas', 'Completas', 'Pendentes'])
-
-const activeFilter = ref('Todas')
-
+const taskFilter = ref(['Todas', 'Concluidas', 'Pendentes'])
 
 </script>

@@ -3,6 +3,7 @@ import { defineStore } from 'pinia'
 export const useTaskStore = defineStore('task', {
   state: () => ({
     newTask: '',
+    editedIndex: -1,
     editedTask: {
       id: -1,
       title: '',
@@ -46,17 +47,13 @@ export const useTaskStore = defineStore('task', {
     },
     editTask(task) {
       this.editedTask = Object.assign({}, task)
-      console.log(this.editedTask)
+      this.editedIndex = this.tasks.indexOf(task)
+      focus('newTask')
     },
     saveEdit() {
-      this.tasks = this.tasks.map(t => {
-        if(t.id === this.editedTask.id) {
-          Object.assign(t, this.editedTask)
-        } else {
-          return t
-        }
-      })
-      this.editedTask = Object.assign({}, this.defaultTask)
+      Object.assign(this.tasks[this.editedIndex], this.editedTask)     
+      this.editedTask = Object.assign({}, this.defaultTask) 
+      this.editedIndex = -1
     },
     cancelEdit() {
       this.editedTask = Object.assign({}, this.defaultTask)
