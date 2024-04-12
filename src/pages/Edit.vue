@@ -1,6 +1,6 @@
 <template>
     <div class="">
-        <h1>Home</h1>
+        <h1>Editar Tarefas</h1>
 
         <EditTaskBar />
         <v-select label="Filtrar Tarefas" :items='taskFilter'

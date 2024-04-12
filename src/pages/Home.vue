@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <div class="">
-        <h1>Home</h1>
+        <h1>Tarefas</h1>
 
         <TaskBar />
         <v-select label="Filtrar Tarefas" :items='taskFilter'
